@@ -127,3 +127,53 @@ By working on this project, you will learn:
 The KIRK Robot Control project provides a comprehensive platform for learning about robotics and Arduino programming. By exploring and modifying the code, you can gain valuable insights into hardware control, communication protocols, and real-time decision-making in robotics.
 
 Feel free to experiment and expand the functionalities of the KIRK robot!
+
+Revision verion changes below, above is focused on 1.0 version
+
+Explanation of the Code
+Libraries and Header Files
+Wire.h: For I2C communication.
+Arduino_LED_Matrix.h: Library for controlling LED matrices.
+IRremote.h: Library to control the IR remote.
+Servo.h: Library for controlling servo motors.
+LiquidCrystal_I2C.h: Library for controlling LCDs via I2C.
+WiFiS3.h: Library for WiFi connectivity.
+ArduinoBLE.h: Library for Bluetooth Low Energy (BLE) communication.
+SoftwareSerial.h: Library to create a serial interface on other digital pins.
+Global Variables and Constants
+WiFi Credentials: ssid and password for connecting to a WiFi network.
+Bluetooth Commands: Constants for different movement commands (forward, backward, left, right, stop, avoid, trick).
+IR Remote Codes: Constants for IR commands corresponding to specific buttons on the remote.
+Modes: Constants to define the robot's operational modes (standby, avoid, manual).
+Pin Definitions: Constants for pin assignments for various components (motors, ultrasonic sensors, etc.).
+Motor Control Constants: Constants for motor speeds and safe distance thresholds.
+Setup Function
+Initializes serial communication, Bluetooth, and WiFi.
+Connects to the specified WiFi network and prints the IP address.
+Initializes pins for motors, ultrasonic sensors, and the LCD.
+Sets up the IR receiver and servo motor.
+Loop Function
+Handles incoming web client requests and processes commands.
+Updates the LCD display with the current distance and mode.
+Checks for Bluetooth and IR commands and executes the corresponding actions.
+Executes behavior based on the current operational mode.
+Movement Functions
+moveForward(): Moves the robot forward if no obstacles are detected.
+moveBackward(): Moves the robot backward.
+turnLeft(): Turns the robot left.
+turnRight(): Turns the robot right.
+stopMoving(): Stops the robot immediately.
+gradualStop(): Gradually reduces speed to a stop.
+Obstacle Avoidance
+getDistance(): Measures distance using the ultrasonic sensor.
+scanSurroundings(): Scans the environment for obstacles by checking distances at different angles.
+avoidanceRoutine(): Implements obstacle avoidance logic based on distance readings.
+Command Handling
+handleCommand(): Processes commands received from Bluetooth, IR, or web interface and updates the robot's mode and actions.
+performTrick(): Executes a predefined trick involving turning and moving the servo.
+Summary of Improvements
+Command Handling: Improved handling of Bluetooth and IR commands to ensure they are processed correctly.
+Distance Measurement: Enhanced the distance measurement logic to ensure accurate readings.
+LCD Updates: Streamlined the LCD updates to reflect the current state and distance more effectively.
+Modular Functions: Organized the code into clear, modular functions for better readability and maintenance.
+
